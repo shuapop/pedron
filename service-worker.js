@@ -5,8 +5,8 @@ const assets = [
     './index.html',
     './styles.css',
     './manifest.json',
-    './icons/icon-192x192.png',
-    './icons/icon-512x512.png'
+    './icons/download-192x192.png',
+    './icons/download-512x512.png'
 ];
 
 // Install
@@ -41,3 +41,4 @@ self.addEventListener('fetch', evt => {
         })
     );
 });
+
