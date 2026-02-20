@@ -1,0 +1,599 @@
+/* --- CONFIGURACIÓN DE JUEGO AAA --- */
+:root {
+    --blue-deep: #2c2c54;     /* Azul oscuro fondo */
+    --blue-light: #34ace0;    /* Azul cielo botones */
+    --yellow-pop: #ffda79;    /* Amarillo UI */
+    --yellow-dark: #ccae62;
+    --white: #f7f1e3;
+    --dark: #212121;
+    --danger: #ff5252;
+    
+    /* Gradientes 3D */
+    --grad-primary: linear-gradient(180deg, #ffda79 0%, #ffb142 100%);
+    --grad-btn: linear-gradient(to bottom, #33d9b2, #218c74);
+    --grad-metal: linear-gradient(145deg, #ffffff, #d1d8e0);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: var(--blue-deep);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+/* Títulos con fuente "Brawler" */
+h1, h2, h3, .logo {
+    font-family: 'Lilita One', cursive;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- NAVEGACIÓN LATERAL (SIN BOTÓN & ESTILO METAL) --- */
+.side-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 90px;
+    /* Fondo oscuro sólido para contraste profesional */
+    background: #1e272e;
+    /* Línea de energía amarilla a la derecha */
+    border-right: 4px solid var(--yellow-pop);
+    box-shadow: 5px 0 20px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    /* 'flex-start' + margins automáticos centrarán los puntos */
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 40px 0;
+    z-index: 1000;
+}
+
+/* LOGO ESTILIZADO */
+.logo {
+    color: white;
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 1;
+    text-shadow: 2px 2px 0 #000;
+}
+.logo span {
+    color: var(--yellow-pop);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    display: block;
+    margin-top: 5px;
+    text-shadow: none;
+}
+
+/* CONTENEDOR DE PUNTOS */
+.nav-dots {
+    /* Estos márgenes centran los puntos verticalmente en el espacio disponible */
+    margin-top: auto;
+    margin-bottom: auto;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Separación entre puntos */
+    
+    /* Carril oscuro detrás de los puntos */
+    background: rgba(0,0,0,0.3);
+    padding: 25px 15px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: inset 0 5px 10px rgba(0,0,0,0.5);
+}
+
+/* PUNTOS (ESTADO NORMAL - ACERO) */
+.nav-dots a {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    /* Degradado metálico gris */
+    background: linear-gradient(145deg, #95a5a6, #34495e);
+    border: 1px solid #7f8c8d;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote suave */
+    box-shadow: 
+        inset 1px 1px 2px rgba(255,255,255,0.3), 
+        0 4px 5px rgba(0,0,0,0.3);
+}
+
+/* PUNTOS (ACTIVO / HOVER - ORO BRILLANTE) */
+.nav-dots a.active, .nav-dots a:hover {
+    transform: scale(1.5); /* Crecen al activarse */
+    background: radial-gradient(circle at 30% 30%, #fff7cc, #ffc400); /* Oro puro */
+    border-color: #fff;
+    /* Resplandor externo (Glow) */
+    box-shadow: 
+        0 0 15px var(--yellow-pop), 
+        inset 2px 2px 2px rgba(255,255,255,0.8);
+}
+
+/* Ocultar en celular */
+@media (max-width: 768px) {
+    .side-nav { display: none; }
+}
+
+/* --- HEADER IMPACTANTE (Corte Diagonal) --- */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-left: 150px; /* Espacio para el nav */
+    padding-right: 50px;
+    background: url('images/Fondo_1.png') center/cover no-repeat fixed;
+    /* Recorte diagonal en la parte inferior */
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Degradado para que el texto se lea siempre */
+    background: linear-gradient(90deg, rgba(44,44,84,0.95) 0%, rgba(44,44,84,0.4) 60%, transparent 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.season-tag {
+    background: var(--blue-light);
+    padding: 5px 15px;
+    font-weight: 900;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 0 #227093;
+}
+
+.hero-section h1 {
+    font-size: 5rem;
+    line-height: 0.9;
+    margin-bottom: 20px;
+    text-shadow: 0 5px 0 #000;
+}
+
+.hero-section h1 span {
+    color: var(--yellow-pop);
+    font-size: 6rem;
+    text-shadow: 0 5px 0 #b38f00, 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #d1ccc0;
+}
+
+/* --- BOTONES CON ANIMACIÓN PRO --- */
+
+/* 1. Definimos la animación del destello de luz */
+@keyframes shineEffect {
+    0% { left: -100%; transition-property: left; }
+    100% { left: 100%; transition-property: left; }
+}
+
+/* 2. Estilo Base del Botón */
+.btn {
+    position: relative; /* Necesario para el efecto de brillo */
+    padding: 18px 45px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    font-family: 'Lilita One', cursive;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-right: 15px;
+    overflow: hidden; /* Para que el brillo no se salga del botón */
+    
+    /* ANIMACIÓN SUAVE (Physics) */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Efecto rebote suave */
+}
+
+/* 3. Botón Amarillo (DESCARGAR) */
+.btn-primary {
+    background: var(--grad-primary);
+    color: var(--dark);
+    /* Sombra sólida inicial */
+    box-shadow: 0 6px 0 var(--yellow-dark), 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Efecto HOVER (Cuando pones el mouse) */
+.btn-primary:hover {
+    /* El botón sube y crece ligeramente */
+    transform: translateY(-5px) scale(1.05);
+    /* La sombra crece para dar sensación de altura */
+    box-shadow: 0 12px 0 var(--yellow-dark), 0 20px 30px rgba(0,0,0,0.3);
+}
+
+/* Destello de luz automático en el botón amarillo */
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    animation: shineEffect 3s infinite; /* El brillo pasa cada 3 segundos */
+}
+
+/* 4. Botón Transparente (TRAILER) */
+.btn-outline {
+    background: rgba(255, 255, 255, 0.1); /* Ligeramente visible */
+    color: white;
+    border: 3px solid white;
+    box-shadow: 0 6px 0 rgba(255,255,255,0.3);
+    backdrop-filter: blur(4px);
+}
+
+.btn-outline:hover {
+    /* Sube y se llena de blanco */
+    transform: translateY(-5px) scale(1.05);
+    background: white;
+    color: var(--blue-deep); /* El texto se vuelve oscuro */
+    box-shadow: 0 12px 0 rgba(255,255,255,0.5), 0 20px 30px rgba(0,0,0,0.2);
+}
+
+/* 5. Efecto CLICK (Active) - Para ambos */
+.btn:active {
+    transform: translateY(4px) scale(0.95); /* Se hunde */
+    box-shadow: 0 0 0 transparent; /* Desaparece la sombra sólida */
+}
+
+.floating-badge {
+    position: absolute;
+    right: 50px;
+    bottom: 150px;
+    background: var(--white);
+    color: var(--dark);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    box-shadow: 0 0 30px rgba(255,255,255,0.3);
+    transform: rotate(15deg);
+    border: 5px solid var(--danger);
+}
+.floating-badge span { font-size: 3rem; font-weight: 900; font-family: 'Lilita One'; line-height: 1; }
+.floating-badge small { font-weight: bold; }
+
+/* --- SECCIONES DIAGONALES (MODO "DARK CINEMATIC") --- */
+.diagonal-section {
+    position: relative;
+    padding: 150px 0;
+    margin-top: -80px; /* Corte diagonal sobre la portada para fusionarse */
+    transform: skewY(-3deg);
+    z-index: 2;
+}
+
+.skew-fix {
+    transform: skewY(3deg); /* Enderezar contenido */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* 1. FONDO OSCURO Y ELEGANTE */
+.dark-blue {
+    /* Gradiente oscuro profundo que combina con tu portada (del azul noche al negro) */
+    background: radial-gradient(circle at 50% 50%, #3a3a60 0%, #1e1e30 100%);
+    
+    /* Patrón tecnológico sutil (puntos muy finos en lugar de cuadrícula escolar) */
+    background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    
+    /* Bordes finos de "luz" arriba para resaltar el corte */
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    /* Sombra hacia arriba para fusionarse con la portada */
+    box-shadow: 0 -20px 50px rgba(0,0,0,0.5); 
+}
+
+.split-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+/* --- TEXTO PREMIUM --- */
+.text-block { flex: 1; }
+
+.text-block h2 {
+    font-size: 4rem;
+    /* BLANCO con un toque degradado metálico, adiós al amarillo infantil */
+    background: linear-gradient(180deg, #ffffff 0%, #bdc3c7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+    /* Sombra elegante difusa en lugar de borde negro grueso */
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+    line-height: 1;
+}
+
+.text-block p {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    /* Gris claro muy legible sobre fondo oscuro */
+    color: #dfe6e9;
+    font-weight: 400; /* Letra más fina y elegante */
+    margin-bottom: 35px;
+}
+
+/* LISTA (Paneles de Cristal/Tech) */
+.feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.feature-list li {
+    font-size: 1.2rem;
+    /* Efecto Cristal Oscuro */
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    padding: 18px 25px;
+    border-radius: 8px; /* Bordes menos redondos, más serios */
+    /* Pequeño detalle de color a la izquierda */
+    border-left: 4px solid var(--yellow-pop);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px); /* Efecto vidrio */
+    font-family: 'Rubik', sans-serif; /* Fuente moderna */
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.feature-list li:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: var(--blue-light); /* Cambia de color al hover */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* --- TABLET/MONITOR FUTURISTA --- */
+.visual-block { flex: 1; perspective: 1000px; }
+
+.game-ui-mockup {
+    /* Marco metálico oscuro */
+    background: #2d3436;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    height: 380px;
+    position: relative;
+    /* Brillo exterior (Glow) suave */
+    box-shadow: 
+        0 20px 50px rgba(0,0,0,0.5),
+        0 0 20px rgba(52, 172, 224, 0.1); /* Resplandor azul muy sutil */
+    overflow: hidden;
+    display: flex; justify-content: center; align-items: center;
+    transform: rotateY(-10deg) rotateX(5deg); /* Inclinación 3D sutil */
+    transition: transform 0.5s ease;
+}
+
+.game-ui-mockup:hover {
+    transform: rotateY(0deg) rotateX(0deg); /* Se endereza suavemente */
+}
+
+/* Pantalla oscura */
+.game-ui-mockup::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, #1e272e 0%, #000000 100%);
+    z-index: 0;
+}
+
+/* Barra de Vida Tech (Minimalista) */
+.hp-bar {
+    position: absolute; top: 30px; left: 30px; right: 30px; height: 8px; /* Más fina */
+    background: rgba(255,255,255,0.1); border-radius: 4px; z-index: 2;
+}
+.hp-bar .fill {
+    width: 60%; height: 100%; 
+    background: var(--danger);
+    box-shadow: 0 0 10px var(--danger); /* Neón rojo */
+    border-radius: 4px;
+}
+
+/* VS Texto (Sutil) */
+.character-placeholder::after {
+    content: 'VS'; 
+    display: block; 
+    font-size: 5rem;
+    color: rgba(255,255,255,0.1); /* Transparente y elegante */
+    font-family: 'Lilita One';
+    letter-spacing: 5px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .split-layout { flex-direction: column; gap: 40px; }
+    .text-block { text-align: center; }
+    .feature-list li { justify-content: center; text-align: left;}
+    .game-ui-mockup { width: 100%; height: 300px; transform: none; }
+}
+
+/* --- ROSTER DE JEFES (FLEXBOX PARA 5 ITEMS) --- */
+.roster-section {
+    padding: 100px 20px;
+    padding-left: 100px; /* Compensar Nav */
+    background: #f7f1e3;
+    color: var(--dark);
+    clip-path: polygon(0 3%, 100% 0, 100% 97%, 0 100%);
+    margin: 50px 0;
+}
+
+.boss-list-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cambiamos Grid por Flex para centrar el elemento impar (Mercadotecnia) */
+.boss-flex-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Permite que bajen de línea */
+    justify-content: center; /* CENTRA los elementos */
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.boss-card {
+    background: white;
+    /* Esto hace que las tarjetas midan mínimo 400px pero crezcan si es necesario */
+    flex: 1 1 400px; 
+    max-width: 500px; /* Evita que se estiren demasiado */
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-left: 8px solid #ccc;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.boss-card:hover { 
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.boss-icon {
+    font-size: 3rem;
+    min-width: 80px;
+    height: 80px;
+    background: #f1f2f6;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    border: 3px solid #ccc;
+}
+
+.boss-data { flex: 1; }
+.boss-data h3 { font-size: 1.4rem; margin-bottom: 3px; color: var(--blue-deep); }
+.subtitle { font-size: 0.8rem; color: #7f8c8d; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+
+/* COLORES POR CARRERA */
+/* TI (Software) - Cyan */
+.type-software { border-left-color: #00d2d3; }
+.type-software .boss-icon { border-color: #00d2d3; background: #e0fbfb; }
+.type-software .progress { background: #00d2d3; }
+
+/* Mantenimiento - Naranja */
+.type-industrial { border-left-color: #ff9f43; }
+.type-industrial .boss-icon { border-color: #ff9f43; background: #fff0de; }
+.type-industrial .progress { background: #ff9f43; }
+
+/* Mecatrónica - Morado */
+.type-meca { border-left-color: #5f27cd; }
+.type-meca .boss-icon { border-color: #5f27cd; background: #ebe2ff; }
+.type-meca .progress { background: #5f27cd; }
+
+/* Inglés - Rojo Suave */
+.type-english { border-left-color: #ff6b6b; }
+.type-english .boss-icon { border-color: #ff6b6b; background: #ffeaea; }
+.type-english .progress { background: #ff6b6b; }
+
+/* Mercadotecnia - Amarillo */
+.type-mkt { border-left-color: #feca57; }
+.type-mkt .boss-icon { border-color: #feca57; background: #fff9e6; }
+.type-mkt .progress { background: #feca57; }
+
+/* JEFE FINAL (LEGENDARIO) */
+.final-boss-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.legendary {
+    border-left: 10px solid var(--danger);
+    background: #2d3436;
+    color: white;
+    max-width: 800px; /* El rector es más ancho */
+    width: 100%; /* Asegura que ocupe espacio si es pantalla chica */
+    padding: 30px;
+    transform: scale(1.05);
+}
+
+.legendary:hover { transform: scale(1.08); }
+
+.legendary h3 { color: var(--danger); font-size: 2rem; }
+.legendary .boss-icon { 
+    border-color: white; 
+    background: var(--danger); 
+    font-size: 4rem; 
+    width: 100px; height: 100px;
+}
+.legendary-bar .progress { 
+    background: linear-gradient(90deg, #ff9f43, #ee5253, #ff9f43); 
+    background-size: 200% 100%;
+    animation: gradientMove 2s infinite;
+    box-shadow: 0 0 15px var(--danger); 
+}
+
+@keyframes gradientMove {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+/* Ajustes Móviles */
+@media (max-width: 768px) {
+    .roster-section { padding-left: 20px; }
+    .boss-card { max-width: 100%; } /* En móvil ocupan todo el ancho */
+    .legendary { transform: none; }
+    .hero-section { padding-left: 20px; padding-right: 20px; clip-path: none; }
+    .hero-section h1 { font-size: 3.5rem; }
+    .hero-section h1 span { font-size: 4rem; }
+    .split-layout { flex-direction: column; }
+    .diagonal-section { transform: none; margin-top: 0; }
+    .skew-fix { transform: none; }
+    .roster-section { padding-left: 20px; clip-path: none; }
+    .boss-row { justify-content: center; }
+}
+
+/* --- TEAM --- */
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.member {
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border: 2px solid var(--dark);
+}
+
+/* --- FOOTER --- */
+footer {
+    background: var(--dark);
+    padding: 40px;
+    text-align: center;
+    color: #7f8c8d;
+}
