@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTE: Battle Royale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Rubik:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="./manifest.json">
+</head>
+<body>
+
+    <nav class="side-nav">
+        <div class="logo">UTE<br>GAMES</div>
+        <div class="nav-dots">
+            <a href="#hero" class="active" title="Inicio"></a>
+            <a href="#story" title="Historia"></a>
+            <a href="#roster" title="Jefes"></a>
+            <a href="#team" title="Equipo"></a>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="season-tag">TEMPORADA 1: INICIO DE CLASES</span>
+            <h1>EL ÚLTIMO <br><span>RECTOR</span></h1>
+            <p>Un videojuego donde tus conocimiento y habilidades son  arma principal.</p>
+            <div class="cta-group">
+
+
+
+                <!--BOTON PARA DESCARGAR-->
+                <button class="btn btn-primary" id="installBtn" style="display:none;">DESCARGAR GRATIS</button>
+
+
+
+                <button class="btn btn-outline">VER TRÁILER</button>
+            </div>
+        </div>
+        <div class="floating-badge">
+            <span>9.8</span>
+            <small>IGN RATING</small>
+        </div>
+    </header>
+
+    <main>
+        <section id="story" class="diagonal-section dark-blue">
+            <div class="content-wrapper skew-fix">
+                <div class="split-layout">
+                    <div class="text-block">
+                        <h2>BIENVENIDO AL CAMPUS</h2>
+                        <p>No es una universidad común. Aquí, cada crédito se gana en combate. Desde los laberintos de Ingeniería hasta los tribunales de Derecho, deberás sobrevivir a los 9 semestres más peligrosos de tu vida.</p>
+                        <ul class="feature-list">
+                            <li>💥 <strong>4 Facultades</strong> únicas</li>
+                            <li>🏆 <strong>Modo Arena</strong> Multijugador</li>
+                            <li>🎓 <strong>Jefe Final:</strong> El Rector Supremo</li>
+                        </ul>
+                    </div>
+                    <div class="visual-block">
+                        <div class="game-ui-mockup">
+                            <div class="hp-bar"><div class="fill"></div></div>
+                            <div class="character-placeholder">
+                                <span>VS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roster" class="roster-section">
+    <h2 class="section-title">JEFES DE NIVEL</h2>
+    
+    <div class="boss-list-container">
+        
+        <div class="boss-flex-wrapper">
+            
+            <div class="boss-card type-software">
+                <div class="boss-icon">💻</div>
+                <div class="boss-data">
+                    <h3>T.I. SOFTWARE</h3>
+                    <span class="subtitle">Arquitecto de Código</span>
+                    <div class="stats">
+                        <label>Lógica</label>
+                        <div class="bar"><div class="progress" style="width: 95%;"></div></div>
+                        <label>Desarrollo</label>
+                        <div class="bar"><div class="progress" style="width: 85%;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="boss-card type-industrial">
+                <div class="boss-icon">🔧</div>
+                <div class="boss-data">
+                    <h3>MANTENIMIENTO</h3>
+                    <span class="subtitle">Titán Industrial</span>
+                    <div class="stats">
+                        <label>Maquinaria</label>
+                        <div class="bar"><div class="progress" style="width: 90%;"></div></div>
+                        <label>Fuerza</label>
+                        <div class="bar"><div class="progress" style="width: 95%;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="boss-card type-meca">
+                <div class="boss-icon">🤖</div>
+                <div class="boss-data">
+                    <h3>MECATRÓNICA</h3>
+                    <span class="subtitle">Cyborg Automatizado</span>
+                    <div class="stats">
+                        <label>Robótica</label>
+                        <div class="bar"><div class="progress" style="width: 92%;"></div></div>
+                        <label>Precisión</label>
+                        <div class="bar"><div class="progress" style="width: 88%;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="boss-card type-english">
+                <div class="boss-icon">🗣️</div>
+                <div class="boss-data">
+                    <h3>LENGUA INGLESA</h3>
+                    <span class="subtitle">The Polyglot Speaker</span>
+                    <div class="stats">
+                        <label>Speaking</label>
+                        <div class="bar"><div class="progress" style="width: 85%;"></div></div>
+                        <label>Grammar</label>
+                        <div class="bar"><div class="progress" style="width: 90%;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="boss-card type-mkt">
+                <div class="boss-icon">📢</div>
+                <div class="boss-data">
+                    <h3>MERCADOTECNIA</h3>
+                    <span class="subtitle">Estratega de Masas</span>
+                    <div class="stats">
+                        <label>Persuasión</label>
+                        <div class="bar"><div class="progress" style="width: 98%;"></div></div>
+                        <label>Creatividad</label>
+                        <div class="bar"><div class="progress" style="width: 90%;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="final-boss-container">
+            <div class="boss-card legendary">
+                <div class="boss-icon">👑</div>
+                <div class="boss-data">
+                    <h3>EL RECTOR</h3>
+                    <span class="subtitle">NIVEL FINAL - AUTORIDAD MÁXIMA</span>
+                    <div class="stats">
+                        <label>PODER TOTAL</label>
+                        <div class="bar legendary-bar"><div class="progress" style="width: 100%;"></div></div>
+                    </div>
+                    <button class="btn-challenge">DESAFIAR AHORA</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+        <section id="team" class="diagonal-section yellow-bg">
+            <div class="content-wrapper skew-fix">
+                <h2>DEV TEAM</h2>
+                <div class="team-grid">
+                    <div class="member"><span>Dev 1</span></div>
+                    <div class="member"><span>Art 2</span></div>
+                    <div class="member"><span>Sound 3</span></div>
+                    <div class="member"><span>Code 4</span></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 UTE GAMES STUDIOS. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Seleccionamos todas las secciones que queremos rastrear
+        // (El header 'hero' y todas las 'section')
+        const sections = document.querySelectorAll('header, section');
+        const navDots = document.querySelectorAll('.nav-dots a');
+
+        // 2. Escuchamos el evento de "scroll" (cuando bajas la página)
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            sections.forEach(section => {
+                // Calculamos la altura y posición de cada sección
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                // Si bajamos más de un tercio de la sección, la marcamos como actual
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // 3. Iluminamos la bolita correspondiente
+            navDots.forEach(dot => {
+                dot.classList.remove('active'); // Apagamos todas
+                if (dot.getAttribute('href').includes(current)) {
+                    dot.classList.add('active'); // Encendemos la correcta
+                }
+            });
+        });
+    </script>
+
+<script>
+let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+
+// Registrar Service Worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js')
+            .then(reg => console.log('Service Worker registrado'))
+            .catch(err => console.log('Error SW:', err));
+    });
+}
+
+// Detectar cuando la PWA puede instalarse
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault(); // Evita que Chrome muestre su botón automático
+    deferredPrompt = e;
+
+    // Mostrar tu botón
+    installBtn.style.display = "inline-block";
+});
+
+// Cuando el usuario hace click en tu botón
+installBtn.addEventListener('click', async () => {
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+
+        const { outcome } = await deferredPrompt.userChoice;
+
+        if (outcome === 'accepted') {
+            console.log('Usuario aceptó la instalación');
+        } else {
+            console.log('Usuario canceló la instalación');
+        }
+
+        deferredPrompt = null;
+        installBtn.style.display = "none";
+    }
+});
+</script>
+
+
+
+</body>
+</html>
